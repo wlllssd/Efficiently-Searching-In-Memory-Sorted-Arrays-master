@@ -142,36 +142,54 @@ struct Run {
   static std::vector<double>
               findAlgorithmAndSearch(Run &run, const DatasetBase &dataset) {
     constexpr auto algorithm_mapper = std::array<fn_tuple,
-                                                 13>{
+                                                 14>{
+        make_tuple("tip2",
+                   searchAndMeasure<tip<record_bytes, 2>, record_bytes>),
         make_tuple("tip4",
                    searchAndMeasure<tip<record_bytes, 4>, record_bytes>),
+        make_tuple("tip8",
+                   searchAndMeasure<tip<record_bytes, 8>, record_bytes>),
         make_tuple("tip16",
                    searchAndMeasure<tip<record_bytes, 16>, record_bytes>),
+        make_tuple("tip32",
+                   searchAndMeasure<tip<record_bytes, 32>, record_bytes>),
         make_tuple("tip64",
                    searchAndMeasure<tip<record_bytes, 64>, record_bytes>),
+        make_tuple("tip128",
+                   searchAndMeasure<tip<record_bytes, 128>, record_bytes>),
         make_tuple("tip256",
                    searchAndMeasure<tip<record_bytes, 256>, record_bytes>),
+        make_tuple("tip512",
+                   searchAndMeasure<tip<record_bytes, 512>, record_bytes>),
         make_tuple("tip1024",
                    searchAndMeasure<tip<record_bytes, 1024>, record_bytes>),
-        // Interpolation Search
-        make_tuple("is",
-                   searchAndMeasure<InterpolationSearch<record_bytes>,
-                                    record_bytes>),
-        make_tuple("isseq", searchAndMeasure<sip<record_bytes, false>, record_bytes>),
-        // SIP and TIP
-        make_tuple("sip", searchAndMeasure<sip<record_bytes>, record_bytes>),
-        make_tuple("tip",
-                   searchAndMeasure<tip<record_bytes, 64>, record_bytes>),
-        // Binary Search
-        make_tuple("bs", searchAndMeasure<Binary<record_bytes>, record_bytes>),
-        // Search Eytzinger
-        make_tuple("b-eyt", searchAndMeasure<b_eyt<record_bytes, false>, record_bytes>),
-        // Search Eytzinger with prefetch
-        make_tuple("b-eyt-p",
-                   searchAndMeasure<b_eyt<record_bytes, true>, record_bytes>),
-        // Collects numer of intepolation and sequential steps of SIP
-        make_tuple("sip_metadata",
-                   searchAndMetadata<sip<record_bytes>, record_bytes>),
+        make_tuple("tip2048",
+                   searchAndMeasure<tip<record_bytes, 2048>, record_bytes>),
+        make_tuple("tip4096",
+                   searchAndMeasure<tip<record_bytes, 4096>, record_bytes>),
+        make_tuple("tip8192",
+                   searchAndMeasure<tip<record_bytes, 8192>, record_bytes>),
+        make_tuple("tip16384",
+                   searchAndMeasure<tip<record_bytes, 16384>, record_bytes>),
+        // // Interpolation Search
+        // make_tuple("is",
+        //            searchAndMeasure<InterpolationSearch<record_bytes>,
+        //                             record_bytes>),
+        // make_tuple("isseq", searchAndMeasure<sip<record_bytes, false>, record_bytes>),
+        // // SIP and TIP
+        // make_tuple("sip", searchAndMeasure<sip<record_bytes>, record_bytes>),
+        // make_tuple("tip",
+        //            searchAndMeasure<tip<record_bytes, 64>, record_bytes>),
+        // // Binary Search
+        // make_tuple("bs", searchAndMeasure<Binary<record_bytes>, record_bytes>),
+        // // Search Eytzinger
+        // make_tuple("b-eyt", searchAndMeasure<b_eyt<record_bytes, false>, record_bytes>),
+        // // Search Eytzinger with prefetch
+        // make_tuple("b-eyt-p",
+        //            searchAndMeasure<b_eyt<record_bytes, true>, record_bytes>),
+        // // Collects numer of intepolation and sequential steps of SIP
+        // make_tuple("sip_metadata",
+        //            searchAndMetadata<sip<record_bytes>, record_bytes>),
     };
     // Find the correct search algorithm to use as specified in the run.
     auto it = std::find_if(
