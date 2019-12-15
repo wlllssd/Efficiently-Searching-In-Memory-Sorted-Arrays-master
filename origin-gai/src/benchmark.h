@@ -142,7 +142,7 @@ struct Run {
   static std::vector<double>
               findAlgorithmAndSearch(Run &run, const DatasetBase &dataset) {
     constexpr auto algorithm_mapper = std::array<fn_tuple,
-                                                 14>{
+                                                 18>{
         make_tuple("tip2",
                    searchAndMeasure<tip<record_bytes, 2>, record_bytes>),
         make_tuple("tip4",
@@ -171,6 +171,14 @@ struct Run {
                    searchAndMeasure<tip<record_bytes, 8192>, record_bytes>),
         make_tuple("tip16384",
                    searchAndMeasure<tip<record_bytes, 16384>, record_bytes>),
+        make_tuple("tip32768",
+                   searchAndMeasure<tip<record_bytes, 32768>, record_bytes>),
+        make_tuple("tip65536",
+                   searchAndMeasure<tip<record_bytes, 65536>, record_bytes>),
+        make_tuple("tip131072",
+                   searchAndMeasure<tip<record_bytes, 131072>, record_bytes>),
+        make_tuple("tip262144",
+                   searchAndMeasure<tip<record_bytes, 262144>, record_bytes>),
         // // Interpolation Search
         // make_tuple("is",
         //            searchAndMeasure<InterpolationSearch<record_bytes>,

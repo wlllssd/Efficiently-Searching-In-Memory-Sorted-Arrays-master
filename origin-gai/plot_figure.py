@@ -19,6 +19,10 @@ run_param = ['Run','DatasetSize','Distribution','Parameter','#threads','SearchAl
 # SearchAlgorithm = ['bs','tip','tip4','tip16','tip64','tip256','tip1024']
 SearchAlgorithm = ['tip2', 'tip4', 'tip8', 'tip16','tip32', 'tip64','tip128', 
 					'tip256', 'tip1024', 'tip2048', 'tip4096', 'tip8192', 'tip16384']
+# SearchAlgorithm = ['tip2', 'tip4', 'tip8', 'tip16', 'tip32', 'tip64', 'tip128',
+#                    'tip256', 'tip1024', 'tip2048']
+SearchAlgorithm = ['tip64', 'tip128', 'tip256', 'tip1024', 'tip2048', 'tip4096', 'tip8192', 'tip16384',
+					'tip32768', 'tip65536', 'tip131072', 'tip262144']
 
 df = read_csv("outfile", engine='python', sep = "\s+|\t+|\s+\t+|\t+\s+")
 
