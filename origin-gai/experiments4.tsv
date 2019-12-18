@@ -9,5 +9,3 @@ DatasetSize	Distribution	Parameter	SearchAlgorithm	RecordSizeBytes	#threads
 10000	fal	1.05	tip256	32	1
 10000	fal	1.05	tip512	32	1
 10000	fal	1.05	tip1024	32	1
-10000	fal	1.05	tip2048	32	1
-10000	fal	1.05	tip2048	32	1

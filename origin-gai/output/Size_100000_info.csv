@@ -1,14 +1,13 @@
 	TimeNS
-tip2	243
-tip4	236
-tip8	195
-tip16	190
-tip32	209
-tip64	222
-tip128	171
-tip256	189
-tip1024	163
-tip2048	183
-tip4096	226
-tip8192	380
-tip16384	1066
+tip2	119
+tip4	100
+tip8	88
+tip16	97
+tip32	99
+tip64	84
+tip128	86
+tip256	56
+tip512	78
+tip1024	79
+tip2048	116
+tip4096	236

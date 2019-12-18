@@ -12,4 +12,3 @@ DatasetSize	Distribution	Parameter	SearchAlgorithm	RecordSizeBytes	#threads
 100000	fal	1.05	tip2048	32	1
 100000	fal	1.05	tip4096	32	1
 100000	fal	1.05	tip8192	32	1
-100000	fal	1.05	tip16384	32	1
